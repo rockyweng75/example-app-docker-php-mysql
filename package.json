@@ -4,6 +4,8 @@
         "dev": "vite",
         "build": "vite build",
         "init": "docker-compose up",
+        "pull": "docker-compose build & docker-compose pull",
+        "down": "docker-compose down",
         "docker-build": "docker build -t example_app .",
         "docker-run": "docker run --rm -it --link mysql -p 8000:8000 example_app bash",
         "docker-mysql": "docker run -itd --name mysql -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=true -d mysql"
