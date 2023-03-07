@@ -1,4 +1,5 @@
 FROM php:8.2-cli
+# COPY . .
 COPY . /usr/src/example
 WORKDIR /usr/src/example
 
@@ -22,5 +23,8 @@ RUN apt-get update && apt-get install -y \
 # 安裝 Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# 安裝 xdebug
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
 
 CMD ["php", "artisan", "serve", "--host", "0.0.0.0"]
